@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Philips TV Remote</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <header class="app__header">
+        <div>
+          <p class="eyebrow">Remote Control</p>
+          <h1>Philips 43PFL5766</h1>
+          <p class="subtitle">Network IP: <span id="current-ip">10.222.41.52</span></p>
+        </div>
+        <div class="status" id="connection-status">
+          <span class="status__dot"></span>
+          <span>Ready</span>
+        </div>
+      </header>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Connection</h2>
+          <p>JointSpace API over your local network</p>
+        </div>
+        <div class="panel__body connection">
+          <label>
+            TV IP Address
+            <input type="text" id="ip-input" value="10.222.41.52" />
+          </label>
+          <label>
+            Port
+            <input type="number" id="port-input" value="1925" />
+          </label>
+          <label class="toggle">
+            <span>Use no-cors mode</span>
+            <input type="checkbox" id="cors-toggle" checked />
+          </label>
+          <button class="btn btn--ghost" id="update-ip">Update</button>
+          <p class="hint">
+            Note: some TVs block cross-origin requests in browsers. Use this interface on the same network.
+          </p>
+        </div>
+      </section>
+
+      <section class="remote">
+        <div class="remote__grid">
+          <button class="btn btn--power" data-key="Standby">Power</button>
+          <button class="btn" data-key="Home">Home</button>
+          <button class="btn" data-key="Options">Options</button>
+          <button class="btn" data-key="Info">Info</button>
+
+          <button class="btn" data-key="Rewind">⏪</button>
+          <button class="btn" data-key="PlayPause">⏯</button>
+          <button class="btn" data-key="FastForward">⏩</button>
+          <button class="btn" data-key="Stop">⏹</button>
+
+          <button class="btn" data-key="VolumeDown">Vol -</button>
+          <button class="btn" data-key="Mute">Mute</button>
+          <button class="btn" data-key="VolumeUp">Vol +</button>
+          <button class="btn" data-key="Back">Back</button>
+
+          <div class="dpad">
+            <button class="btn" data-key="CursorUp">▲</button>
+            <div class="dpad__row">
+              <button class="btn" data-key="CursorLeft">◀</button>
+              <button class="btn btn--accent" data-key="Confirm">OK</button>
+              <button class="btn" data-key="CursorRight">▶</button>
+            </div>
+            <button class="btn" data-key="CursorDown">▼</button>
+          </div>
+
+          <button class="btn" data-key="ChannelDown">Ch -</button>
+          <button class="btn" data-key="Source">Source</button>
+          <button class="btn" data-key="ChannelUp">Ch +</button>
+          <button class="btn" data-key="Find">Search</button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <h2>Quick Apps</h2>
+          <p>Launch inputs or apps on the TV</p>
+        </div>
+        <div class="panel__body app-launch">
+          <button class="btn btn--tile" data-app="Netflix">Netflix</button>
+          <button class="btn btn--tile" data-app="YouTube">YouTube</button>
+          <button class="btn btn--tile" data-app="PrimeVideo">Prime Video</button>
+          <button class="btn btn--tile" data-app="HDMI1">HDMI 1</button>
+          <button class="btn btn--tile" data-app="HDMI2">HDMI 2</button>
+          <button class="btn btn--tile" data-app="TV">Live TV</button>
+        </div>
+      </section>
+
+      <section class="panel log">
+        <div class="panel__header">
+          <h2>Command Log</h2>
+          <button class="btn btn--ghost" id="clear-log">Clear</button>
+        </div>
+        <div class="panel__body" id="log"></div>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
